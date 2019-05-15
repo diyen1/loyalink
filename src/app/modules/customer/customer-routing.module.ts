@@ -4,7 +4,7 @@ import { NgModule } from '@angular/core';
 
 const routes: Routes = [{
   path: '',
-  // component: DmfbAdminComponent,
+  // component: DmfbCustomerComponent,
   // children: [
   //   {
   //     path: 'dashboard',

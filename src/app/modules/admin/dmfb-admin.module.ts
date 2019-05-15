@@ -27,7 +27,7 @@ import {AdminEditArtistComponent} from './edit-artist/admin-edit-artist.componen
 const components = [
   DmfbAdminComponent,
   AdminDashboardComponent,
-  // AdminShopComponent,
+  AdminShopComponent,
   AdminNavComponent,
   AdminUsersComponent,
   AdminArtistsComponent,

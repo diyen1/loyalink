@@ -6,10 +6,10 @@ import {AdminService} from './angular-services/admin.service';
 
 @Component({
   selector: 'app-admin',
-  templateUrl: './dmfb-admin.component.html',
-  styleUrls: ['./dmfb-admin.component.scss']
+  templateUrl: './dmfb-customer.component.html',
+  styleUrls: ['./dmfb-customer.component.scss']
 })
-export class DmfbAdminComponent implements OnInit {
+export class DmfbCustomerComponent implements OnInit {
 
   constructor(
     public appService: AppService,

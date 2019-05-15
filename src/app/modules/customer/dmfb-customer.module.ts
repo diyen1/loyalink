@@ -15,8 +15,10 @@ import {ArtistsComponent} from './artists/artists.component';
 import {ArtistComponent} from './artist/artist.component';
 import {InfiniteScrollModule} from 'ngx-infinite-scroll';
 import {ArtistSingleComponent} from './artist-single/artist-single.component';
+import {DmfbCustomerComponent} from './dmfb-customer.component';
 
 const components = [
+  DmfbCustomerComponent,
   HomeComponent,
   AboutUsComponent,
   StaffComponent,

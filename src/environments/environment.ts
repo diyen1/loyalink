@@ -5,14 +5,14 @@
 export const environment = {
   production: false,
   firebase: {
-    apiKey: 'AIzaSyD9B6aYXKEd4cx8yIDp396CRRXTrwrrX5Y',
-    authDomain: 'loyallink-8c954.firebaseapp.com',
-    databaseURL: 'https://loyallink-8c954.firebaseio.com',
-    projectId: 'loyallink-8c954',
-    storageBucket: 'loyallink-8c954.appspot.com',
-    messagingSenderId: '994026933768'
+    apiKey: '',
+    authDomain: '',
+    databaseURL: '',
+    projectId: '',
+    storageBucket: '',
+    messagingSenderId: ''
   },
-  homeUrl: 'http://localhost:4200',
+  homeUrl: '',
 };
 
 /*
