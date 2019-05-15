@@ -3,6 +3,7 @@ import {ModalDismissReasons, NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {AuthService} from '../../auth/services/auth.service';
 import {ModalService} from '../angular-services/modal.service';
 import {Router} from '@angular/router';
+import {AppService} from '../../../angular-services/app.service';
 
 @Component({
   selector: 'app-header',
@@ -18,6 +19,7 @@ export class HeaderComponent implements OnInit {
     private modalService: NgbModal,
     private dmfbModalService: ModalService,
     public router: Router,
+    public appService: AppService
   ) { }
 
   ngOnInit() {
