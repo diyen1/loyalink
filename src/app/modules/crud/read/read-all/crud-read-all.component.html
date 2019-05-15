@@ -1,11 +1,11 @@
-<div *ngIf="loading" class="mdl-typography--text-center">
+<div *ngIf="loading" class="text-center">
   <div class="medium-space"></div>
   <!--<mdl-spinner [active]="true"></mdl-spinner>-->
   Loading ...
 </div>
 
 <div >
-  <div class="items-wrapper mdl-grid mdlc-row" *ngIf="!loading && (crudService.services && crudService.services.length > 0)"
+  <div class="row" *ngIf="!loading && (crudService.services && crudService.services.length > 0)"
        infiniteScroll
        [infiniteScrollDistance]="2"
        [infiniteScrollThrottle]="50"
@@ -13,7 +13,7 @@
        (scrolled)="onScroll()">
     <div
       *ngFor="let service of crudService.services; let i = index"
-      class="mdl-cell mdl-cell--3-col mdl-cell--3-col-desktop mdl-cell--4-col-tablet mdl-cell--4-col-phone graybox">
+      class="col-3 graybox">
       <app-item [service]="service"></app-item>
     </div>
     <div *ngIf="loadingMore" class="loading-wrapper" style="margin: auto">

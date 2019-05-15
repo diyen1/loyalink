@@ -24,7 +24,6 @@ import {SharedModule} from './modules/shared/shared.module';
     // DmfbCrudModule,
     // DmfbAuthModule,
     BrowserModule,
-    // MdlModule,
     FormsModule,
     ReactiveFormsModule,
     // UtilsModule,
