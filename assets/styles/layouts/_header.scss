@@ -1,0 +1,47 @@
+.header {
+  position: absolute;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 999;
+}
+
+.navbar{
+  background-color:transparent !important;
+  border-color: transparent;
+  font-family:'Oswald';
+}
+.navbar-brand img{
+  width:40%;
+  height:auto;
+  @media #{$mq-small} {
+    width:70%;
+  }
+  @media #{$mq-medium} {
+    width:70%;
+  }
+
+  @media #{$mq-large} {
+    width:40%;
+  }
+
+  @media #{$mq-xlarge} {
+    width:30%;
+  }
+
+  @media #{$mq-xxlarge} {
+    width:30%;
+  }
+}
+
+.nav-item a {
+  color: white;
+
+  &.is-active {
+    text-decoration: underline;
+  }
+
+  &:active{
+    text-decoration: underline;
+  }
+}
