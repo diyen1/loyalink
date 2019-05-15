@@ -1,0 +1,370 @@
+<app-header></app-header>
+
+<section id="homeheader">
+  <div class="xx-large-space"></div>
+  <div class="xx-large-space"></div>
+  <div class="container">
+    <section>
+
+      <ngb-carousel
+        *ngIf="images"
+        id="demo"
+        class="carousel-inner"
+        [showNavigationArrows]="showNavigationArrows"
+        style="text-align: center; color:white;">
+        <ng-template *ngFor="let image of images; let i = index" ngbSlide>
+          <div class="carousel-item active">
+            <h2>{{ image.title }}</h2>
+            <h2>{{ image.content }}</h2>
+            <div class="xx-large-space"></div>
+            <div class="x-large-space"></div>
+            <!--<br><br><br><br><br><br><br><br><br><br><br>-->
+          </div>
+        </ng-template>
+
+        <!--<ng-template ngbSlide>-->
+        <!--<img [src]="images[1]" alt="Random second slide">-->
+        <!--<div class="carousel-caption">-->
+        <!--<h3>Second slide label</h3>-->
+        <!--<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>-->
+        <!--</div>-->
+        <!--</ng-template>-->
+        <!--<ng-template ngbSlide>-->
+        <!--<img [src]="images[2]" alt="Random third slide">-->
+        <!--<div class="carousel-caption">-->
+        <!--<h3>Third slide label</h3>-->
+        <!--<p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>-->
+        <!--</div>-->
+        <!--</ng-template>-->
+      </ngb-carousel>
+
+      <!--<div id="demo" class="carousel slide" data-ride="carousel">
+
+
+        <div class="carousel-inner" style="text-align: center; color:white;">
+          <div class="carousel-item active">
+            <h2>1. CHOOSE YOUR ARTIST</h2>
+            <h2>BOOK AN APPOINTMENT</h2>
+          </div>
+          <div class="carousel-item">
+            <h2>2. CHOOSE YOUR ARTIST</h2>
+            <h2>BOOK AN APPOINTMENT</h2>
+          </div>
+          <div class="carousel-item">
+            <h2>3. CHOOSE YOUR ARTIST</h2>
+            <h2>BOOK AN APPOINTMENT</h2>
+          </div>
+        </div>
+        <br><br><br><br><br><br><br><br><br><br><br>
+        <ul class="carousel-indicators">
+          <li data-target="#demo" data-slide-to="0" class="active"></li>
+          <li data-target="#demo" data-slide-to="1"></li>
+          <li data-target="#demo" data-slide-to="2"></li>
+        </ul>
+      </div>
+-->
+    </section>
+    <div class="transparent">
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+    </div>
+  </div>
+
+</section>
+
+<section class="information">
+
+  <div class="section1">
+    <br>
+    <h3>Tattoo is getting new dimension</h3>
+    <h3>with Loyalink</h3>
+  </div>
+
+  <div class="container-fluid storysection">
+    <br>
+    <div class="row">
+      <div class="col-5 tools">
+        <!-- <img src="/assets/images/story.jpg"  width="auto" height="auto" align="left"  style="max-width:500px;"  > --></div>
+      <div class="story col-sm-3">
+
+        <br>
+        <br>
+        <h3 style="color:white;">STORY</h3>
+        <p>
+          <small>A navigation bar is a navigation header that is placed at the top of the page.The
+            navbar-expand-xl|lg|md|sm class determines when the navbar should stack vertically (on extra large, large,
+            medium or small screens).
+          </small>
+        </p>
+        <br>
+        <br>
+        <br>
+
+
+      </div>
+      <div class="bwlogobackground col-sm-4">
+
+      </div>
+
+    </div>
+  </div>
+
+
+  <div class="container">
+
+    <br>
+    <h3 style="text-align: center">OUR ARTISTS</h3>
+    <br>
+    <br>
+    <div class="homeourartists">
+      <div class="row">
+        <div class="col-sm-2">
+          <!-- <img src="/assets/images/tattooing.jpg" width="80%" height="50%"> -->
+        </div>
+        <div class="col-sm-10">
+          <div *ngIf="!loading">
+            <div *ngIf="artists && artists.length > 0; then artistsShortList else noArtists"></div>
+          </div>
+
+          <ng-template #artistsShortList>
+            <div *ngFor="let artist of artists" class="artistgallery">
+              <app-artist [showDesc]="false" [artist]="artist"></app-artist>
+            </div>
+          </ng-template>
+
+          <ng-template #noArtists>
+            There are no artists available
+          </ng-template>
+
+          <!--<div class="artistgallery">-->
+          <!--<a target="_blank" href="/assets/images/artists_images/phor.jpg">-->
+          <!--<img src="/assets/images/artists_images/phor.jpg" alt="" width="600" height="400">-->
+          <!--</a>-->
+          <!--<div class="desc">Phor</div>-->
+          <!--</div>-->
+          <!--<div class="artistgallery">-->
+          <!--<a target="_blank" href="/assets/images/artists_images/phor.jpg">-->
+          <!--<img src="/assets/images/artists_images/van.jpg" alt="" width="600" height="400">-->
+          <!--</a>-->
+          <!--<div class="desc">Van</div>-->
+          <!--</div>-->
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+</section>
+
+<section class="information1">
+  <div class="container">
+    <br>
+    <div class="gallery container ">
+      <h3 style="text-align: center;">GALLERY</h3>
+    </div>
+  </div>
+  <br>
+  <br>
+
+  <div *ngIf="!loading">
+    <div *ngIf="artists && artists.length > 0; then galleryList else noGalleryItem"></div>
+  </div>
+
+  <ng-template #galleryList>
+    <ngb-carousel
+      *ngIf="images"
+      id="gallery_carousel"
+      class="carousel container-fluid slide w-100 carousel2"> <!-- [showNavigationArrows]="showNavigationArrows" -->
+      <ng-template *ngFor="let imagesRow of gallery; let i = index" ngbSlide>
+        <div class="carousel-item active">
+          <div class="carousel-inner w-100" role="listbox">
+            <div
+              *ngFor="let image of imagesRow; let i = index"
+              class="col-2 img-fluid gallery_image"
+              [style.backgroundImage]="'url(' + image + ')'"></div>
+          </div>
+        </div>
+      </ng-template>
+    </ngb-carousel>
+  </ng-template>
+
+  <ng-template #noGalleryItem>
+    There is no image in the gallery
+  </ng-template>
+
+
+
+  <!--<div id="gallery_carousel" class="carousel container-fluid slide w-100 carousel2" data-ride="carousel">-->
+    <!--<div class="carousel-inner w-100" role="listbox">-->
+      <!--&lt;!&ndash; list of image files with left, right clicks &ndash;&gt;-->
+      <!--<div class="carousel-item active">-->
+        <!--<img class="d-block col-2 img-fluid" src="/assets/images/gallery/img_01.jpg">-->
+      <!--</div>-->
+      <!--<div class="carousel-item">-->
+        <!--<img class="d-block col-2 img-fluid" src="/assets/images/gallery/img_02.jpg">-->
+      <!--</div>-->
+      <!--<div class="carousel-item">-->
+        <!--<img class="d-block col-2 img-fluid" src="/assets/images/gallery/img_03.jpg">-->
+      <!--</div>-->
+      <!--<div class="carousel-item">-->
+        <!--<img class="d-block col-2 img-fluid" src="/assets/images/gallery/img_04.jpg">-->
+      <!--</div>-->
+      <!--<div class="carousel-item">-->
+        <!--<img class="d-block col-2 img-fluid" src="/assets/images/gallery/img_05.jpg">-->
+      <!--</div>-->
+      <!--<div class="carousel-item">-->
+        <!--<img class="d-block col-2 img-fluid" src="/assets/images/gallery/img_06.jpg">-->
+      <!--</div>-->
+      <!--<div class="carousel-item">-->
+        <!--<img class="d-block col-2 img-fluid" src="/assets/images/gallery/img_07.jpg">-->
+      <!--</div>-->
+      <!--<div class="carousel-item">-->
+        <!--<img class="d-block col-2 img-fluid" src="/assets/images/gallery/img_08.jpg">-->
+      <!--</div>-->
+      <!--<div class="carousel-item">-->
+        <!--<img class="d-block col-2 img-fluid" src="/assets/images/gallery/img_09.jpg">-->
+      <!--</div>-->
+      <!--<div class="carousel-item">-->
+        <!--<img class="d-block col-2 img-fluid" src="/assets/images/gallery/img_10.jpg">-->
+      <!--</div>-->
+      <!--<div class="carousel-item">-->
+        <!--<img class="d-block col-2 img-fluid" src="/assets/images/gallery/img_11.jpg">-->
+      <!--</div>-->
+      <!--<div class="carousel-item">-->
+        <!--<img class="d-block col-2 img-fluid" src="/assets/images/gallery/img_12.jpg">-->
+      <!--</div>-->
+      <!--<div class="carousel-item">-->
+        <!--<img class="d-block col-2 img-fluid" src="/assets/images/gallery/img_13.jpg">-->
+      <!--</div>-->
+      <!--<div class="carousel-item">-->
+        <!--<img class="d-block col-2 img-fluid" src="/assets/images/gallery/img_14.jpg">-->
+      <!--</div>-->
+    <!--</div>  &lt;!&ndash; end of inner carousel &ndash;&gt;-->
+
+    <!--<a class="carousel-control-prev" href="#gallery_carousel" role="button" data-slide="prev">-->
+      <!--<span class="carousel-control-prev-icon" aria-hidden="true"></span>-->
+      <!--<span class="sr-only">Previous</span>-->
+    <!--</a>-->
+    <!--<a class="carousel-control-next" href="#gallery_carousel" role="button" data-slide="next">-->
+      <!--<span class="carousel-control-next-icon" aria-hidden="true"></span>-->
+      <!--<span class="sr-only">Next</span>-->
+    <!--</a>-->
+    <!--<br>-->
+
+    <!--<div style="text-align:center;">-->
+      <!--<button type="button" id="myBtn" class="btn btn-default btn-circle">&#8592;</button>-->
+      <!--<button type="button" id="myBtn2" class="btn btn-default btn-circle">&#8594;</button>-->
+    <!--</div>-->
+  <!--</div> &lt;!&ndash; end of gallery carousel &ndash;&gt;-->
+
+
+  <div class="container">
+    <div class="homeourstaff">
+
+      <br>
+      <br>
+      <h3 style="text-align: center">OUR STAFF</h3>
+      <br><br>
+      <div class="row">
+        <!-- <div class="col-sm-1">
+        </div> --><br><br>
+        <div class="col-sm-3">
+          <img src="/assets/images/staff_images/1.jpg" width='100%' height='90%'>
+        </div>
+        <div class="col-sm-3">
+          <br>
+          <br><br>
+          <h6> JOHN DOE</h6>
+          <p>
+            <small> Lorem ipsum dolor sit amet, consectetur adiisicing elit eiusmod tempor incididunt ut labore et
+              dolore mafna a enim ad minim veniam, quis nostrud exercitation ullamd nisi ut aliquip ex ea commodo
+              consequat. Duis aute irum rrehenderit in voluptate velit esse cillum dolore eu fu parlatur. Excepteur sint
+              occaecat cupidatat non proider culpa qui officia deserunt mollit anim id est laborum.
+            </small>
+          </p>
+          <br><br>
+        </div>
+        <div class="col-sm-3">
+          <img src="/assets/images/staff_images/2.jpg" width='100%' height='80%'>
+        </div>
+        <div class="col-sm-3">
+          <br>
+          <br><br>
+          <h6> JOHN DOE</h6>
+          <p>
+            <small> Lorem ipsum dolor sit amet, consectetur adiisicing elit eiusmod tempor incididunt ut labore et
+              dolore mafna a enim ad minim veniam, quis nostrud exercitation ullamd nisi ut aliquip ex ea commodo
+              consequat. Duis aute irum rrehenderit in voluptate velit esse cillum dolore eu fu parlatur. Excepteur sint
+              occaecat cupidatat non proider culpa qui officia deserunt mollit anim id est laborum.
+            </small>
+          </p>
+          <br><br>
+        </div>
+        <!-- <div class="col-sm-1">
+        </div> -->
+      </div>
+      <div>
+      </div>
+    </div>
+
+
+    <div id="demo1" class="carousel slide carousel3" data-ride="carousel">
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <p> "It's the perfect solution for my passion. It fits my needs perfectly. I will let my mum know about this,
+            she could really make use of Loyal Ink!"</p>
+          <p>
+            <small>James J.</small>
+          </p>
+        </div>
+        <div class="carousel-item">
+          <p> "It's the perfect solution for my passion. It fits my needs perfectly. I will let my mum know about this,
+            she could really make use of Loyal Ink!"</p>
+          <p>
+            <small>James J.</small>
+          </p>
+        </div>
+
+        <div class="carousel-item">
+          <p> "It's the perfect solution for my passion. It fits my needs perfectly. I will let my mum know about this,
+            she could really make use of Loyal Ink!"</p>
+          <p>
+            <small>James J.</small>
+          </p>
+        </div>
+        <div class="carousel-item">
+          <p> "It's the perfect solution for my passion. It fits my needs perfectly. I will let my mum know about this,
+            she could really make use of Loyal Ink!"</p>
+          <p>
+            <small>James J.</small>
+          </p>
+        </div>
+        <div class="carousel-item">
+          <p> "It's the perfect solution for my passion. It fits my needs perfectly. I will let my mum know about this,
+            she could really make use of Loyal Ink!"</p>
+          <p>
+            <small>James J.</small>
+          </p>
+        </div>
+      </div>
+
+      <br>
+      <br>
+      <ul class="carousel-indicators">
+        <li data-target="#demo1" data-slide-to="0" class="active"></li>
+        <li data-target="#demo1" data-slide-to="1"></li>
+        <li data-target="#demo1" data-slide-to="2"></li>
+        <li data-target="#demo1" data-slide-to="3"></li>
+        <li data-target="#demo1" data-slide-to="4"></li>
+      </ul>
+
+    </div>
+  </div>
+
+  <br>
+</section>
+
+<app-footer></app-footer>

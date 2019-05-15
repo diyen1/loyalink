@@ -1,0 +1,24 @@
+mdl-card {
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+
+button {
+  font-size: 12px;
+
+  &.delete {
+    color: #a00;
+  }
+
+  &:hover {
+    background: rgba(0, 0, 0, 0);
+    font-weight: bold;
+  }
+}
+
+.mdl-button {
+  padding: 0;
+  min-width: 60px;
+}

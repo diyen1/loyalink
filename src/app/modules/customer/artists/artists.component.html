@@ -1,0 +1,84 @@
+<app-header></app-header>
+
+<section id="artistsheader">
+  <div class=container>
+
+
+    <div class="xx-large-space"></div>
+    <div class="xx-large-space"></div>
+    <section style="color: white; text-align: center;">
+      <h2>ARTISTS</h2>
+      <div class="x-large-space"></div>
+      <div class="small-space"></div>
+    </section>
+  </div>
+</section>
+
+<section class="ourartists">
+  <br>
+  <div class="container">
+    <h3 style="text-align: center">OUR ARTISTS</h3>
+    <br>
+    <br>
+    <h4 style="text-align: center"> Some line about loyal ink artists</h4>
+
+    <div *ngIf="!loading && (artists && artists.length > 0)">
+      <div class="row">
+        <div *ngFor="let artist of artists; let i = index " class="artistgallery col-md-4">
+          <div *ngIf="i < offset">
+            <div *ngIf="i%3 == 0">
+              <div class="medium-space"></div>
+              <div class="medium-space"></div>
+            </div>
+            <div *ngIf="i%3 == 1">
+              <div class="medium-space"></div>
+            </div>
+            <div *ngIf="i%3 == 2"></div>
+            <app-artist [artist]="artist"></app-artist>
+          </div>
+        </div>
+      </div>
+
+      <a *ngIf="showLoadMore" class="btn btn-primary" (click)="loadMore()">Load More</a>
+    </div>
+
+    <div *ngIf="loading"> Loading ...</div>
+    <br>
+  </div>
+  <br>
+</section>
+
+<!--<div *ngIf="loading" class="mdl-typography&#45;&#45;text-center">-->
+<!--<div class="medium-space"></div>-->
+<!--&lt;!&ndash;<mdl-spinner [active]="true"></mdl-spinner>&ndash;&gt;-->
+<!--</div>-->
+
+<!--<div>-->
+<!--<div class="items-wrapper mdl-grid mdlc-row" *ngIf="!loading && (artists && artists.length > 0)"-->
+<!--infiniteScroll-->
+<!--[infiniteScrollDistance]="2"-->
+<!--[infiniteScrollThrottle]="50"-->
+<!--[scrollWindow]="false"-->
+<!--(scrolled)="onScroll()"> &lt;!&ndash; services-wrapper &ndash;&gt;-->
+<!--<div-->
+<!--*ngFor="let artist of artists; let i = index"-->
+<!--class="mdl-cell mdl-cell&#45;&#45;3-col mdl-cell&#45;&#45;3-col-desktop mdl-cell&#45;&#45;4-col-tablet mdl-cell&#45;&#45;4-col-phone graybox">-->
+<!--<app-artist *ngIf="i < offset" [artist]="artist"></app-artist>-->
+<!--</div>-->
+<!--<div *ngIf="loading" class="loading-wrapper">-->
+<!--&lt;!&ndash;<mdl-spinner [active]="true"></mdl-spinner>&ndash;&gt;-->
+<!--Loading ...-->
+<!--</div>-->
+<!--</div>-->
+<!--</div>-->
+
+<!--<div *ngIf="!loading && !(artists && artists.length > 0)">-->
+<!--<div *ngIf="!(user && user != null)">-->
+<!--There are currently no products or services available-->
+<!--</div>-->
+<!--<div *ngIf="user && user != null">-->
+<!--You currently no products or services available-->
+<!--</div>-->
+<!--</div>-->
+
+<app-footer></app-footer>

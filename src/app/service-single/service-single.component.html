@@ -1,0 +1,91 @@
+<div style="position: relative;">
+
+</div>
+
+
+<!--<mdl-card class="shop-service full-width" mdl-shadow="2">-->
+  <div *ngIf="loading" class="mdl-typography--text-center">
+    <div class="medium-space"></div>
+    <!--<mdl-spinner [active]="true"></mdl-spinner>-->
+  </div>
+
+  <div *ngIf="service" class="mdl-grid">
+    <div class="mdl-cell mdl-cell--4-col mdl-cell--4-col-desktop mdl-cell--4-col-tablet mdl-cell--4-col-phone graybox">
+      <div>
+        <mdl-card class="shop-service full-width" mdl-shadow="2">
+        <img *ngIf="currentImageUrl && currentImageUrl != ''" (click)="toggleZoom()" class="dm-hover full-width" [src]="currentImageUrl" />
+        </mdl-card>
+      </div>
+
+      <div class="mdl-grid mdlc-row">
+        <div (click)="change(service.mainPhotoUrl)"
+          class="dm-hover mdl-cell mdl-cell--3-col mdl-cell--3-col-desktop mdl-cell--4-col-tablet mdl-cell--4-col-phone graybox">
+          <div class="service-image" [style.backgroundImage]="'url(' + service.mainPhotoUrl + ')'"></div>
+        </div>
+        <div
+          *ngFor="let image of service.imagesUrl"
+          (click)="change(image)"
+          class="dm-hover mdl-cell mdl-cell--3-col mdl-cell--3-col-desktop mdl-cell--4-col-tablet mdl-cell--4-col-phone graybox">
+          <div class="service-image" [style.backgroundImage]="'url(' + image + ')'"></div>
+        </div>
+      </div>
+
+    </div>
+    <div class="mdl-cell mdl-cell--6-col mdl-cell--6-col-desktop mdl-cell--4-col-tablet mdl-cell--4-col-phone graybox">
+    <div class="page-section-wrapper">
+      <div class="service-title">{{ service.service }}</div>
+      <div><strong>Price: {{ service.price | currency }}</strong></div>
+      <div class="small-space"></div>
+      <p>
+        {{ service.description }}
+      </p>
+
+      <div class="small-space"></div>
+
+      <div>
+        <button [disabled]="appService.isMyItem(service)" mdl-button mdl-button-type="raised" mdl-colored="accent" (click)="viewSellerProfile()">
+          View Seller Profile
+        </button>
+      </div>
+    </div>
+    </div>
+  </div>
+
+<!--</mdl-card>-->
+
+
+<div *ngIf="zoomed" style="position: fixed; width: 100%; top: 0; left: 0; height: 100vh; z-index: 10; background: rgba(0,0,0,0.5);">
+  <div style="padding-left: 250px; padding-top: 100px; position: relative;">
+    <div style="display: block; width: 70%; margin: auto;">
+      <slideshow
+      [height]="'80vh'"
+      [autoPlay]="false"
+      [showArrows]="true"
+      [showDots]="true"
+      [imageUrls]="galleries"
+      [lazyLoad]="galleries?.length > 1"
+      [autoPlayWaitForLazyLoad]="true"></slideshow>
+
+      <!--<div>
+        <mdl-card class="shop-service full-width" mdl-shadow="2">
+          <img class="full-width" [src]="currentImageUrl" />
+        </mdl-card>
+      </div>-->
+    </div>
+    <!--<div class="mdl-grid mdlc-row" style="position: fixed; width: 100%; bottom: 0; left0; z-index: 10; background: rgba(0,0,0,0.9);">
+      <div (click)="change(service.mainPhotoUrl)"
+           class="dm-hover mdl-cell mdl-cell&#45;&#45;1-col mdl-cell&#45;&#45;1-col-desktop mdl-cell&#45;&#45;4-col-tablet mdl-cell&#45;&#45;4-col-phone graybox">
+        <div class="service-image" [style.backgroundImage]="'url(' + service.mainPhotoUrl + ')'"></div>
+      </div>
+      <div
+        *ngFor="let image of service.imagesUrl"
+        (click)="change(image)"
+        class="dm-hover mdl-cell mdl-cell&#45;&#45;1-col mdl-cell&#45;&#45;1-col-desktop mdl-cell&#45;&#45;4-col-tablet mdl-cell&#45;&#45;4-col-phone graybox">
+        <div class="service-image" [style.backgroundImage]="'url(' + image + ')'"></div>
+      </div>
+    </div>-->
+    <i
+      style="position: fixed; top: 80px; right: 3%; z-index: 10; color: #FFF;background: rgba(0,0,0,0.9); border-radius: 50%; padding: 4px;"
+      (click)="toggleZoom()" class="dm-hover material-icons" role="presentation">close</i>
+  </div>
+</div>

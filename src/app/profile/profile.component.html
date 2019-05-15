@@ -1,0 +1,32 @@
+<div class="page-section-wrapper profile-wrapper">
+
+  <p style="float: right;">
+    <a class="dm-hover profile-action" (click)="editProfile()">
+      <div style="display: inline-block; float: left">
+        <i class="material-icons" role="presentation">edit</i>
+      </div>
+      <div style="display: inline-block; float: left">
+        <div class="xx-small-space horizontal"></div>
+        Edit profile
+      </div>
+      <div class="clearfix"></div>
+    </a>
+  </p>
+  <div class="clearfix"></div>
+
+
+  <div class="services-wrapper mdl-grid mdlc-row">
+    <div class="mdl-cell mdl-cell--3-col mdl-cell--3-col-desktop mdl-cell--3-col-tablet mdl-cell--4-col-phone graybox">
+      <crud-attribute-display [fields]="profileImageFields"></crud-attribute-display>
+    </div>
+    <div class="mdl-cell mdl-cell--9-col mdl-cell--9-col-desktop mdl-cell--5-col-tablet mdl-cell--4-col-phone graybox">
+      <crud-attribute-display [fields]="fields"></crud-attribute-display>
+    </div>
+  </div>
+
+  <div class="small-space"></div>
+
+  <h3>My Services</h3>
+
+  <app-services-list [user]="user"></app-services-list>
+</div>

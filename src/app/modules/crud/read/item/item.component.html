@@ -1,0 +1,17 @@
+<div class="card shop-service full-width" routerLink="/service/{{ service.sid }}">
+  <!--<mdl-card-title mdl-card-expand>-->
+    <!--<img class="full-width" src="{{ service.mainPhotoUrl }}" />-->
+  <div class="service-image" [style.backgroundImage]="'url(' + service.mainPhotoUrl + ')'"></div>
+  <!--</mdl-card-title>-->
+  <div class="card-supporting-text">
+    <div class="item-details-wrapper">
+      <div>{{ service.service | slice:0:35 }} {{ (service.service.length > 35) ? '...' : '' }}</div>
+      <div class="item-details-price"><strong>Price: {{ service.price | currency }}</strong></div>
+    </div>
+  </div>
+  <!--<mdl-card-actions mdl-card-border>
+    <button mdl-button mdl-colored mdl-ripple>
+      View Updates
+    </button>
+  </mdl-card-actions>-->
+</div>

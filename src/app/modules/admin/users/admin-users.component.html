@@ -1,0 +1,23 @@
+<div class="page-section-wrapper">
+  <div class="container">
+    <div *ngIf="loading" class="mdl-typography--text-center">
+      <div class="medium-space"></div>
+      <!--<mdl-spinner [active]="true"></mdl-spinner>-->
+      Loading ...
+    </div>
+
+    <app-notification></app-notification>
+
+    <ng2-smart-table
+      *ngIf="!loading"
+      [settings]="settings"
+      [source]="users"
+      (editConfirm)="editConfirm($event)"
+      (deleteConfirm)="deleteConfirm($event)"></ng2-smart-table>
+
+    <div *ngIf="!loading && !(users && users.length > 0)">
+      {{ noItemsError }}
+    </div>
+
+  </div>
+</div>

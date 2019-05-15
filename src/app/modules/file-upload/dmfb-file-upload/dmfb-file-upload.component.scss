@@ -1,0 +1,62 @@
+.uploaded-image-wrapper {
+  width: 100%;
+  padding-top: 100%;
+  background-image: linear-gradient(rgba(0,0,0,.3), rgba(0,0,0,.1));
+  display: inline-block;
+  position: relative;
+
+  .uploaded-image {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1;
+    background-size: cover;
+  }
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    width: 64px;
+    height: 64px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-image: url(cloud-upload-2.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+
+  .uploaded-image-text {
+    position: absolute;
+    text-align: center;
+    width: 100%;
+    bottom: 15px;
+    left: 0;
+    font-size: 12px;
+  }
+}
+
+.image-uploaded-wrapper {
+  width: 150px;
+  display: inline-block !important;
+  position: relative;
+
+  progress {
+    position: absolute;
+    width: 80%;
+    bottom: 18px;
+    margin-left: 10%;
+    margin-right: 10%;
+  }
+}
+
+.file-to-upload-file {
+  display: none;
+}

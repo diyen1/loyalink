@@ -1,0 +1,18 @@
+.artist-single-wrapper {
+  max-width: 800px;
+  margin: auto;
+}
+
+.artist-single-gallery {
+  .row > div {
+    margin-bottom: 20px;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+}
+
+.artist-single-gallery-image {
+  height: 243px;
+  background-size: cover;
+  background-repeat: no-repeat;
+}

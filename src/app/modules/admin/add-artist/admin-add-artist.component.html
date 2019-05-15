@@ -1,0 +1,27 @@
+<div class="page-section-wrapper">
+  <div class="container">
+
+    <h1>Add Artist</h1>
+
+    <div class="medium-space"></div>
+
+    <app-notification></app-notification>
+
+    <div class="row">
+      <div class="col-12 col-lg-8">
+        <div class="add-artist-wrapper">
+          <app-crud-create
+            [submitButtonText]="'Add Artist'"
+            [fields]="fields"
+            [layout]="layout"
+            [loading]="loading"
+            (outputData)="addArtist($event)"
+          ></app-crud-create>
+        </div>
+      </div>
+      <div class="col-12 col-lg-4">
+
+      </div>
+    </div>
+  </div>
+</div>

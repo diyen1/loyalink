@@ -1,0 +1,109 @@
+<form *ngIf="fields.length > 0" novalidate [formGroup]="form" (submit)="onSubmit(form.value)"
+      class="{{ layout.wrapperClass }}">
+
+
+  <!--<input type="text" class="form-control" name="username" placeholder="username">-->
+
+  <div *ngFor="let section of this.layout.templateStructure" class="{{ section.class }}">
+    <!--<div-->
+    <!--*ngFor="let field of fields"-->
+    <!--[class.form-group]="!field.excludeFromFormGroup"-->
+    <!--class="form-group {{ (field.class) ? (field.class) : '' }}">-->
+
+
+
+    <div
+      *ngFor="let field of section.data;"
+      [class.form-group]="!field.excludeFromFormGroup"
+      class="form-group dmfb-input-wrapper {{ (field.class) ? (field.class) : '' }}">
+      <!---->
+      <!---->
+      <!---->
+
+      <!--{{ field | json }}-->
+
+      <div [ngSwitch]="field.type">
+
+    <textarea
+      *ngSwitchCase="'text_area'"
+      class="form-control"
+      placeholder="{{ field.name }}"
+      id="textarea-{{ field.key }}"
+      name="{{ field.key }}"
+      type="text"
+      formControlName="{{ field.key }}"
+      rows="3">
+    </textarea>
+
+        <input
+          *ngSwitchCase="'hidden'"
+          name="{{ field.key }}"
+          type="hidden"
+          formControlName="{{ field.key }}"/>
+
+        <!--<dmfb-file-upload
+          *ngSwitchCase="'image'"
+          (change)="fileAddedCallback()"
+          formControlName="{{ field.key }}"></dmfb-file-upload>-->
+
+        <span *ngSwitchCase="'image'">
+      <label>{{ field.name }}</label><br>
+      <dmfb-file-upload
+        (change)="fileAddedCallback()"
+        formControlName="{{ field.key }}"></dmfb-file-upload>
+    </span>
+
+        <span *ngSwitchCase="'image_array'">
+      <label>{{ field.name }}</label><br>
+      <span *ngFor="let imageField of [].constructor(field.image_count); let i = index">
+        <dmfb-file-upload
+          (change)="fileAddedCallback()"
+          formControlName="{{ field.key + '_' + i }}"></dmfb-file-upload>
+        <span *ngIf="i !== field.image_count -1" class="x-small-space horizontal"></span>
+      </span>
+    </span>
+
+        <!--<mdl-checkbox-->
+        <!--*ngSwitchCase="'checkbox'"-->
+        <!--formControlName="{{ field.key }}"-->
+        <!--[mdl-ripple]="true">-->
+        <!--{{ field.name }}-->
+        <!--</mdl-checkbox>-->
+
+        <div
+          *ngSwitchCase="'checkbox'"
+          class="checkbox">
+          <label>
+            <input
+              type="checkbox"
+              value="1"
+              formControlName="{{ field.key }}"
+              checked>{{ field.name }}</label>
+        </div>
+
+        <input
+          *ngSwitchDefault
+          class="form-control"
+          name="{{ field.key }}"
+          type="{{ field.type }}"
+          placeholder="{{ field.name }}"
+          formControlName="{{ field.key }}"/>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="col-12">
+    <button [disabled]="!form.valid || loading" type="submit" id="register" class="btn btn-warning btn-block">
+      <span class="glyphicon glyphicon-off"></span> {{ submitButtonText }}
+    </button>
+    <span class="small-space"></span>
+    <!--<mdl-spinner [active]="loading"></mdl-spinner>-->
+    <!--<div *ngIf="loading">Loading ...</div>-->
+  </div>
+</form>
+
+<div>
+  <!--<mdl-spinner [active]="fields.length <= 0"></mdl-spinner>-->
+  <div *ngIf="loading">Loading ...</div>
+</div>

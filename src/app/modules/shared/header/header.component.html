@@ -1,0 +1,95 @@
+<header class="header">
+  <div class="container">
+    <nav class="navbar navbar-expand-sm bg-light">
+      <a class="navbar-brand" href="#">
+        <img src="./assets/images/logo.png" alt="">
+      </a>
+
+      <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item selected">
+            <a class="nav-link" [routerLink]="['/home']" [routerLinkActive]="['is-active']">HOME</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/artists']" [routerLinkActive]="['is-active']">ARTISTS</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/about-us']" [routerLinkActive]="['is-active']">ABOUTUS</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/staff']" [routerLinkActive]="['is-active']">STAFF</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/faq']" [routerLinkActive]="['is-active']">FAQ</a>
+          </li>
+
+        </ul>
+
+        <button
+          *ngIf="!authService.isLoggedIn"
+          type="button"
+          class="btn btn-link"
+          (click)="open(loginModal)">LOGIN</button>
+       <!-- <button
+          *ngIf="!authService.isLoggedIn"
+          type="button"
+          class="btn btn-link"
+          (click)="openLoginModal()">LOGIN</button>-->
+        <button
+          *ngIf="!authService.isLoggedIn"
+          type="button"
+          class="btn btn-outline-warning my-2 my-sm-0"
+          (click)="open(registerModal)">REGISTER</button>
+
+        <button
+          *ngIf="authService.isLoggedIn"
+          type="button"
+          class="btn btn-link"
+          (click)="authService.logout()">LOGOUT</button>
+
+
+
+
+
+
+        <!--</div>-->
+        <!--</div>-->
+        <!--</div>-->
+
+
+      </div>
+    </nav>
+  </div>
+</header>
+
+
+<!-- Login Modal -->
+<ng-template #loginModal let-modal>
+
+  <div class="modal-header">
+    <h5 class="modal-title" id="LoginModalLongTitle">LOGIN</h5>
+    <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button> -->
+  </div>
+  <div class="modal-body">
+    <app-login-form></app-login-form>
+  </div>
+</ng-template>
+
+<!-- Register Modal -->
+<ng-template #registerModal let-modal>
+
+  <div class="modal-header">
+    <h5 class="modal-title" id="RegisterModalLongTitle">REGISTER</h5>
+    <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+    </button> -->
+  </div>
+  <div class="modal-body">
+    <app-register></app-register>
+  </div>
+  <div>
+    <pre class="middle"><small>  Or connect with  </small></pre>
+  </div>
+</ng-template>

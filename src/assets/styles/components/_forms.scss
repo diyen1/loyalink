@@ -1,0 +1,16 @@
+.form-control {
+  border-radius: 0;
+  border:1px solid white;
+  background:url(/assets/images/broken_noise.png);
+  color:white;
+
+  &:focus {
+    background:url(/assets/images/broken_noise.png);
+    color:white;
+    border:1px solid white;
+  }
+}
+
+.btn {
+  max-width: 300px;
+}

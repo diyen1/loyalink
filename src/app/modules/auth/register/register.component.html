@@ -1,0 +1,63 @@
+<!--<form role="form" id="registerform">-->
+  <!--<div class="form-group">-->
+    <!--<input type="text" class="form-control" name="username" placeholder="username">-->
+  <!--</div>-->
+  <!--<div class="form-group">-->
+    <!--<input type="email" class="form-control" name="Email address" placeholder="Email">-->
+  <!--</div>-->
+  <!--<div class="form-group">-->
+    <!--<input type="text" class="form-control" name="dob" placeholder="Date of Birth">-->
+  <!--</div>-->
+  <!--<div class="form-group">-->
+    <!--<input type="password" class="form-control"  id = "password" name="password" placeholder="Password">-->
+  <!--</div>-->
+  <!--<div class="form-group">-->
+    <!--<input type="password" class="form-control" id = "confirm_password" name="confirm_password" placeholder="Confirm Password">-->
+    <!--<span id="confirm_message" class="confirmMessage" ></span>-->
+  <!--</div>-->
+  <!--<div class="checkbox">-->
+    <!--<label><input type="checkbox" value="" checked>Remember me</label>-->
+  <!--</div>-->
+  <!--<button type="button" id="register" class="btn btn-warning btn-block"><span class="glyphicon glyphicon-off"></span>REGISTER </button>-->
+<!--</form>-->
+
+<app-crud-create
+  id="registerform"
+  [submitButtonText]="'Register'"
+  [fields]="fields"
+  (outputData)="signUp($event)"></app-crud-create>
+
+
+
+<!--<h1 class="mdl-typography&#45;&#45;text-center">Register</h1>-->
+
+<!--<div class="mdl-grid">-->
+  <!--<div class="mdl-cell mdl-cell&#45;&#45;3-col mdl-cell&#45;&#45;3-col-desktop mdl-cell&#45;&#45;2-col-tablet mdl-cell&#45;&#45;4-col-phone graybox">-->
+
+  <!--</div>-->
+  <!--<div class="mdl-cell mdl-cell&#45;&#45;6-col mdl-cell&#45;&#45;6-col-desktop mdl-cell&#45;&#45;4-col-tablet mdl-cell&#45;&#45;4-col-phone graybox">-->
+    <!--<div class="card shop-service full-width">-->
+
+      <!--<div class="page-section-wrapper">-->
+
+        <!--<app-crud-create class="mdl-typography&#45;&#45;text-center"-->
+          <!--[submitButtonText]="'Register'"-->
+          <!--[fields]="fields" (outputData)="signUp($event)"-->
+        <!--&gt;</app-crud-create>-->
+
+        <!--<div class="small-space"></div>-->
+
+        <!--<div class="mdl-typography&#45;&#45;text-center">-->
+          <!--<span>Have an account?</span>&nbsp;-->
+          <!--<a href="{{ appService.homeUrl }}/login"><strong>Login</strong></a>-->
+        <!--</div>-->
+        <!--<div class="small-space"></div>-->
+      <!--</div>-->
+
+    <!--</div>-->
+
+  <!--</div>-->
+  <!--<div class="mdl-cell mdl-cell&#45;&#45;3-col mdl-cell&#45;&#45;3-col-desktop mdl-cell&#45;&#45;2-col-tablet mdl-cell&#45;&#45;4-col-phone graybox">-->
+
+  <!--</div>-->
+<!--</div>-->

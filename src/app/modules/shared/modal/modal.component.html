@@ -1,0 +1,14 @@
+<ng-template #modalContent let-modal>
+  <div *ngIf="!isConfirm" class="modal-header" [innerHtml]="heading"></div>
+  <div class="modal-body">
+    <div [innerHtml]="body"></div>
+    <div *ngIf="isConfirm" class="modal-actions">
+      <button class="btn" (click)="confirmComplete(true)">
+        Yes
+      </button>
+      <button class="btn" (click)="confirmComplete(false)">
+        No
+      </button>
+    </div>
+  </div>
+</ng-template>

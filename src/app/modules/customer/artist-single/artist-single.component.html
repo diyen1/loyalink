@@ -1,0 +1,53 @@
+<app-header></app-header>
+
+<section id="artistsheader">
+  <div class=container>
+    <div class="xx-large-space"></div>
+    <div class="xx-large-space"></div>
+    <section style="color: white; text-align: center;">
+      <h2>ARTISTS</h2>
+      <div class="x-large-space"></div>
+      <div class="small-space"></div>
+    </section>
+  </div>
+</section>
+
+<section class="ourartists">
+  <div class="page-section-wrapper">
+    <div class="artist-single-wrapper">
+      <div class=container>
+        <div *ngIf="!loading">
+          <div class="row">
+            <div class="col-md-6">
+              <img src="{{ artist.avatar }}" alt="" width="100%">
+            </div>
+            <div class="col-md-6">
+              <h2>{{ artist.name }}</h2>
+              <p [innerHtml]="sanitizeDescription()"></p>
+              <p>
+                IG: <a href="{{ getIgLink() }}" target="_blank">{{ artist.ig }}</a>
+              </p>
+              <p>
+                Email: <a href="mailto:{{ artist.email }}">{{ artist.email }}</a>
+              </p>
+            </div>
+          </div>
+
+          <div *ngIf="artist.portfolioImages && artist.portfolioImages.length > 0" class="artist-single-gallery">
+            <div class="large-space"></div>
+            <div class="row">
+              <div *ngFor="let image of artist.portfolioImages" class="col-md-4">
+                <!--<img src="{{ image }}" alt="" width="100%">-->
+                <div class="artist-single-gallery-image" [style.backgroundImage]="'url(' + image + ')'"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div *ngIf="loading">Loading ...</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<app-footer></app-footer>
