@@ -21,3 +21,23 @@
     }
   }
 }
+
+.ng2-smart-pagination.pagination {
+  margin-top: 25px;
+}
+
+.ng2-smart-pagination .page-link-next, .ng2-smart-pagination .page-link-prev {
+  font-size: inherit !important;
+}
+
+.page-item .page-link {
+  background: transparent;
+  color: #fff;
+  border-color: transparent;
+}
+
+.page-item.disabled .page-link {
+  background: transparent;
+  color: #999;
+  border-color: transparent;
+}
