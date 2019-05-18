@@ -12,6 +12,7 @@ import {AboutUsComponent} from './modules/customer/about-us/about-us.component';
 import {StaffComponent} from './modules/customer/staff/staff.component';
 import {FaqComponent} from './modules/customer/faq/faq.component';
 import {AdminEditArtistComponent} from './modules/admin/edit-artist/admin-edit-artist.component';
+import {BookComponent} from './modules/customer/book/book.component';
 
 export const routes: Routes = [
   {path: '', redirectTo: 'home', pathMatch: 'full'},
@@ -19,6 +20,7 @@ export const routes: Routes = [
   {path: 'about-us', component: AboutUsComponent},
   {path: 'staff', component: StaffComponent},
   {path: 'faq', component: FaqComponent},
+  {path: 'book', component: BookComponent},
   {path: 'artists', component: ArtistsComponent},
   {path: 'artist/:id', component: ArtistSingleComponent},
 

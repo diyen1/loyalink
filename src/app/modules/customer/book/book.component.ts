@@ -1,15 +1,12 @@
 import {Component, OnInit} from '@angular/core';
 import {AppService} from '../../../angular-services/app.service';
-import {DmfbUser} from '../../../model/dmfb-user';
 import {ArtistService} from '../../shared/angular-services/artist.service';
-import {AlertService} from '../../shared/angular-services/alert.service';
-import {ModalService} from '../../shared/angular-services/modal.service';
 
 @Component({
-  selector: 'app-artists',
-  templateUrl: './artists.component.html',
+  selector: 'app-book',
+  templateUrl: './book.component.html',
 })
-export class ArtistsComponent implements OnInit {
+export class BookComponent implements OnInit {
 
   artists: any[] = [];
   loading = false;
@@ -19,13 +16,11 @@ export class ArtistsComponent implements OnInit {
   constructor(
     private appService: AppService,
     private artistService: ArtistService,
-    private alertService: AlertService,
-    private dmfbModalService: ModalService
   ) {
   }
 
   ngOnInit() {
-    this.appService.pageTitle = 'Artists';
+    this.appService.pageTitle = 'Book';
     this.loading = true;
     this.artistService.getAllItems().subscribe(
       (items: any[]) => {

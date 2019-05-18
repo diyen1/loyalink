@@ -57,6 +57,7 @@
       <label>{{ field.name }}</label><br>
       <span *ngFor="let imageField of [].constructor(field.image_count); let i = index">
         <dmfb-file-upload
+          [class.hide]="i >= 20 && form.get(field.key + '_' + (i - 1)).value == ''"
           (change)="fileAddedCallback()"
           formControlName="{{ field.key + '_' + i }}"></dmfb-file-upload>
         <span *ngIf="i !== field.image_count -1" class="x-small-space horizontal"></span>

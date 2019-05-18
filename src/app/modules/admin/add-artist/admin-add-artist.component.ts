@@ -114,7 +114,7 @@ export class AdminAddArtistComponent implements OnInit {
         key: 'portfolioImages',
         name: 'Gallery Images',
         type: 'image_array',
-        image_count: 20,
+        image_count: 100,
         class: '',
         value: '',
       },

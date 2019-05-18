@@ -48,7 +48,7 @@ export class ArtistSingleComponent implements OnInit {
   }
 
   sanitizeDescription() {
-    return this.artist.desc.replace(/(?:\r\n|\r|\n)/g, '<br>');
+    return this.artist.desc.replace(/(?:\r\n|\r|\n)/g, '<br>').toUpperCase();
   }
 
   getIgLink() {

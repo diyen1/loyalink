@@ -25,12 +25,35 @@ export class HomeComponent implements OnInit {
     },
   ];
 
+  testimonials = [
+    {
+      content: 'It\'s the perfect solution for my passion. It fits my needs perfectly. I will let my mum know about this,\n' +
+        '            she could really make use of 9 MAG!',
+      author: 'James J.'
+    },
+    {
+      content: 'It\'s the perfect solution for my passion. It fits my needs perfectly. I will let my mum know about this,\n' +
+        '            she could really make use of 9 MAG!',
+      author: 'James J.'
+    },
+    {
+      content: 'It\'s the perfect solution for my passion. It fits my needs perfectly. I will let my mum know about this,\n' +
+        '            she could really make use of 9 MAG!',
+      author: 'James J.'
+    },
+    {
+      content: 'It\'s the perfect solution for my passion. It fits my needs perfectly. I will let my mum know about this,\n' +
+        '            she could really make use of 9 MAG!',
+      author: 'James J.'
+    },
+  ];
+
   artists: Artist[] = [];
   gallery = [];
   loading = false;
 
   constructor(
-    private appService: AppService,
+    public appService: AppService,
     private artistService: ArtistService,
   ) {
   }

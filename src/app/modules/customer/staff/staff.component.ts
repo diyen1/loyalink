@@ -8,7 +8,7 @@ import {AppService} from '../../../angular-services/app.service';
 export class StaffComponent implements OnInit {
 
   constructor(
-    private appService: AppService,
+    public appService: AppService,
   ) {
   }
 

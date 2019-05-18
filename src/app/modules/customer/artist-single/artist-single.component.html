@@ -22,13 +22,13 @@
               <img src="{{ artist.avatar }}" alt="" width="100%">
             </div>
             <div class="col-md-6">
-              <h2>{{ artist.name }}</h2>
+              <h2>{{ artist.name | uppercase }}</h2>
               <p [innerHtml]="sanitizeDescription()"></p>
               <p>
-                IG: <a href="{{ getIgLink() }}" target="_blank">{{ artist.ig }}</a>
+                IG: <a href="{{ getIgLink() }}" target="_blank">{{ artist.ig | uppercase }}</a>
               </p>
               <p>
-                Email: <a href="mailto:{{ artist.email }}">{{ artist.email }}</a>
+                Email: <a href="mailto:{{ artist.email }}">{{ artist.email | uppercase }}</a>
               </p>
             </div>
           </div>
@@ -44,7 +44,7 @@
           </div>
         </div>
 
-        <div *ngIf="loading">Loading ...</div>
+        <div *ngIf="loading" class="text-center">Loading ...</div>
       </div>
     </div>
   </div>

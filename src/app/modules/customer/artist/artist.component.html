@@ -1,9 +1,9 @@
 <!--<a target="_blank" routerLink="artist/{{ artist.aid }}">-->
-<a routerLink="/artist/{{ artist.aid }}">
+<a class="artist" routerLink="/artist/{{ artist.aid }}">
   <!--<img src="{{ artist.avatar }}" alt="" width="80%" height="80%">-->
   <div class="artist-avatar" [style.backgroundImage]="'url(' + artist.avatar + ')'"></div>
 
-  <div class="desc">{{ artist.name }}</div>
+  <div class="desc">{{ artist.name | uppercase }}</div>
   <p *ngIf="showDesc">
     <small>{{ cleanDesc }}</small>
   </p>

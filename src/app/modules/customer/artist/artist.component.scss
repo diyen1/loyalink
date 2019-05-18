@@ -1,3 +1,8 @@
+.artist {
+  display: block;
+  margin-bottom: 15px;
+}
+
 a {
   text-decoration: none;
   color: inherit;
@@ -6,7 +11,7 @@ a {
 .artist-avatar {
   padding-top: 110%;
   width: 100%;
-  background-size: contain;
+  background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
 }

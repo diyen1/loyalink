@@ -7,7 +7,7 @@
     <div class="xx-large-space"></div>
     <div class="xx-large-space"></div>
     <section style="color: white; text-align: center;">
-      <h2>ARTISTS</h2>
+      <h2>Book</h2>
       <div class="x-large-space"></div>
       <div class="small-space"></div>
     </section>
@@ -17,32 +17,33 @@
 <section class="ourartists">
   <br>
   <div class="container">
-    <h3 style="text-align: center">OUR ARTISTS</h3>
+    <h3 class="text-center">BOOK AN APPOINTMENT</h3>
     <br>
     <br>
-    <h4 style="text-align: center"> Some line about 9MAG artists</h4>
+    <!--<h4 class="text-center">BOOK AN APPOINTMENT</h4>-->
+
+    <p class="text-center">
+      To book with any of our artists at 9MAG, Please include a descriptive email including the details of your request
+      AND YOU WILL BE CONTACTED BY A 9MAG TEAM MEMBER TO CONTINUE THE BOOKING PROCESS.
+    </p>
+    <p class="text-center" style="margin-bottom: 25px;">
+      Select the artist you would like to contact below:
+    </p>
 
     <div *ngIf="!loading && (artists && artists.length > 0)">
-      <div class="row">
-        <div *ngFor="let artist of artists; let i = index " class="artistgallery col-md-4">
-          <div *ngIf="i < offset">
-            <div *ngIf="i%3 == 0">
-              <div class="medium-space"></div>
-              <div class="medium-space"></div>
-            </div>
-            <div *ngIf="i%3 == 1">
-              <div class="medium-space"></div>
-            </div>
-            <div *ngIf="i%3 == 2"></div>
-            <app-artist [artist]="artist"></app-artist>
+        <div *ngFor="let artist of artists; let i = index " class="artistgallery">
+          <div *ngIf="i < offset" class="text-center" style="margin-bottom: 15px;">
+            <a
+              class="btn btn-warning btn-block"
+              href="mailto:{{ artist.email }}"
+            style="margin: auto;">{{ artist.name | uppercase }}</a>
           </div>
         </div>
-      </div>
 
       <a *ngIf="showLoadMore" class="btn btn-primary" (click)="loadMore()">Load More</a>
     </div>
 
-    <div *ngIf="loading"> Loading ...</div>
+    <div *ngIf="loading" class="text-center"> Loading ...</div>
     <br>
   </div>
   <br>
